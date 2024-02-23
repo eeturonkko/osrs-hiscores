@@ -1,8 +1,8 @@
 "use client";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 import { getNonIronmanPlayerInformation } from "@/actions/playerInformationActions";
 
 function SearchPlayerForm() {
@@ -13,6 +13,7 @@ function SearchPlayerForm() {
     await getNonIronmanPlayerInformation(formData);
     form.reset();
   }
+
   return (
     <Card className="bg-[#1e1f21]">
       <CardHeader>
