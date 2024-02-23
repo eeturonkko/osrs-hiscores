@@ -1,15 +1,7 @@
 import dynamic from "next/dynamic";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 
-import {
-  CardTitle,
-  CardHeader,
-  CardContent,
-  CardFooter,
-  Card,
-} from "@/components/ui/card";
 import Header from "./header";
+import SearchPlayerForm from "./search-player-form";
 
 const HiscoreData = dynamic(
   () => import("@/components/component/hiscore-data"),
@@ -25,17 +17,7 @@ export function Hiscore() {
           <HiscoreData />
         </div>
         <div className="flex flex-col space-y-4 w-[300px]">
-          <Card className="bg-[#1e1f21]">
-            <CardHeader>
-              <CardTitle className="text-white">Search by name</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Input placeholder="Search" />
-            </CardContent>
-            <CardFooter className="flex justify-end">
-              <Button className="bg-[#333533] text-white">Search</Button>
-            </CardFooter>
-          </Card>
+          <SearchPlayerForm />
         </div>
       </div>
     </div>
