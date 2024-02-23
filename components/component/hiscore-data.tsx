@@ -10,13 +10,16 @@ import {
 function HiscoreData() {
   return (
     <div className="container relative bg-scroll bg-cover bg-no-repeat h-[100vh] text-white flex justify-center items-start">
-      <div className="bg-black bg-opacity-50 rounded-lg p-4 mt-32">
+      <div className="p-4 mt-32 text-black">
+        <h2 className="text-xl font-bold mb-5">
+          Hiscore Data for {"<player>"}
+        </h2>
         <Table>
           <TableHeader>
-            <TableHead className="text-white">Skill</TableHead>
-            <TableHead className="text-white">Rank</TableHead>
-            <TableHead className="text-white">Level</TableHead>
-            <TableHead className="text-white">XP</TableHead>
+            <TableHead className="text-black">Skill</TableHead>
+            <TableHead className="text-black">Rank</TableHead>
+            <TableHead className="text-black">Level</TableHead>
+            <TableHead className="text-black">XP</TableHead>
           </TableHeader>
           <TableBody>
             <TableCell>Overall</TableCell>
