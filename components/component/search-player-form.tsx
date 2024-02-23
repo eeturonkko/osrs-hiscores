@@ -1,14 +1,9 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { getNonIronmanPlayerInformation } from "@/actions/playerInformationActions";
 
 function SearchPlayerForm() {
   return (
@@ -21,13 +16,16 @@ function SearchPlayerForm() {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <form action="#">
-          <Input id="name" placeholder="Search" />
+        <form
+          className="flex flex-col gap-2"
+          action={getNonIronmanPlayerInformation}
+        >
+          <Input id="name" name="name" placeholder="Search" />
+          <Button type="submit" className="bg-[#333533] text-white">
+            Search
+          </Button>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-end">
-        <Button className="bg-[#333533] text-white">Search</Button>
-      </CardFooter>
     </Card>
   );
 }
