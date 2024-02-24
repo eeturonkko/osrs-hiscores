@@ -1,10 +1,10 @@
-interface PlayerSkill {
+export interface PlayerSkill {
   rank: number;
   level: number;
   experience: number;
 }
 
-interface PlayerInformation {
+export interface PlayerInformation {
   skills: Record<string, PlayerSkill>;
 }
 

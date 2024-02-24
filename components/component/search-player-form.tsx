@@ -2,15 +2,20 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { useSetAtom } from "jotai";
+import { playerInformationAtom } from "@/utils/store";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { getNonIronmanPlayerInformation } from "@/actions/playerInformationActions";
 
 function SearchPlayerForm() {
+  const setPlayerInformation = useSetAtom(playerInformationAtom);
+
   async function handleSearch(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
-    await getNonIronmanPlayerInformation(formData);
+    const playerInformation = await getNonIronmanPlayerInformation(formData);
+    setPlayerInformation(playerInformation);
     form.reset();
   }
 
