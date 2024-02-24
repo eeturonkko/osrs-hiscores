@@ -10,7 +10,7 @@ const HiscoreData = dynamic(
 
 export function Hiscore() {
   return (
-    <div className="min-h-screen flex flex-col items-center py-8">
+    <div className="max-h-screen flex flex-col items-center py-8">
       <Header />
       <div className="flex space-x-8 mt-8 w-full max-w-6xl px-4">
         <div className="flex-1 p-4 rounded-md">

@@ -1,11 +1,4 @@
 "use client";
-import {
-  Table,
-  TableHeader,
-  TableHead,
-  TableBody,
-  TableCell,
-} from "../ui/table";
 import { useAtom } from "jotai";
 import { playerInformationAtom } from "@/utils/store";
 
@@ -13,30 +6,42 @@ function HiscoreData() {
   const [playerInformation] = useAtom(playerInformationAtom);
 
   if (!playerInformation) {
-    return <div>Loading or no player information available...</div>;
+    return (
+      <div className="container min-h-screen bg-scroll bg-cover bg-no-repeat flex justify-center items-start">
+        <div className="p-4 mt-32 text-black flex flex-col items-center">
+          <h2 className="text-xl font-bold mb-5">Hiscore Data</h2>
+          <p>Search for a player</p>
+        </div>
+      </div>
+    );
   }
+
   return (
-    <div className="container relative bg-scroll bg-cover bg-no-repeat  text-white flex justify-center items-start">
-      <div className="p-4 mt-32 text-black max-h-screen">
+    <div className="container min-h-screen bg-scroll bg-cover bg-no-repeat flex justify-center items-start">
+      <div className="text-black mt-28">
         <h2 className="text-xl font-bold mb-5">Hiscore Data</h2>
-        <Table>
-          <TableHeader>
-            <TableHead className="text-black">Skill</TableHead>
-            <TableHead className="text-black">Level</TableHead>
-            <TableHead className="text-black">XP</TableHead>
-          </TableHeader>
-          <TableBody>
-            {Object.entries(playerInformation.skills).map(
-              ([skill, { level, experience }]) => (
-                <tr key={skill}>
-                  <TableCell>{skill}</TableCell>
-                  <TableCell>{level}</TableCell>
-                  <TableCell>{experience}</TableCell>
-                </tr>
-              )
-            )}
-          </TableBody>
-        </Table>
+        <div>
+          <table className="table-auto w-full">
+            <thead>
+              <tr className="text-left text-black">
+                <th className="px-4 py-2">Skill</th>
+                <th className="px-4 py-2">Level</th>
+                <th className="px-4 py-2">XP</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(playerInformation.skills).map(
+                ([skill, { level, experience }]) => (
+                  <tr key={skill}>
+                    <td className="px-4">{skill}</td>
+                    <td className="px-4">{level}</td>
+                    <td className="px-4">{experience.toLocaleString()}</td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
