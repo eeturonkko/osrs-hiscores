@@ -3,9 +3,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { useSetAtom } from "jotai";
+import { fetchPlayerInformation } from "@/utils/functions";
 import { nonIronmanPlayerInformationAtom } from "@/utils/store";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { getNonIronmanPlayerInformation } from "@/actions/playerInformationActions";
 
 function SearchPlayerForm() {
   const setPlayerInformation = useSetAtom(nonIronmanPlayerInformationAtom);
@@ -14,7 +14,8 @@ function SearchPlayerForm() {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
-    const playerInformation = await getNonIronmanPlayerInformation(formData);
+    const path = window.location.pathname;
+    const playerInformation = await fetchPlayerInformation(formData, path);
     setPlayerInformation(playerInformation);
     form.reset();
   }

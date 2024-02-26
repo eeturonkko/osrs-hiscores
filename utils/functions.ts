@@ -1,3 +1,10 @@
+import {
+  getHardcoreIronmanPlayerInformation,
+  getUltimateIronmanPlayerInformation,
+  getIronmanPlayerInformation,
+  getNonIronmanPlayerInformation,
+} from "@/actions/playerInformationActions";
+
 export interface PlayerSkill {
   rank: number;
   level: number;
@@ -53,4 +60,17 @@ export function parsePlayerInformation(textData: string): PlayerInformation {
   });
 
   return playerInformation;
+}
+
+export async function fetchPlayerInformation(formData: FormData, path: string) {
+  switch (path) {
+    case "/hardcore_ironman":
+      return await getHardcoreIronmanPlayerInformation(formData);
+    case "/ultimate_ironman":
+      return await getUltimateIronmanPlayerInformation(formData);
+    case "/ironman":
+      return await getIronmanPlayerInformation(formData);
+    default:
+      return await getNonIronmanPlayerInformation(formData);
+  }
 }
