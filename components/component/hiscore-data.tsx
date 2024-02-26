@@ -1,9 +1,9 @@
 "use client";
 import { useAtom } from "jotai";
-import { playerInformationAtom } from "@/utils/store";
+import { nonIronmanPlayerInformationAtom } from "@/utils/store";
 
 function HiscoreData() {
-  const [playerInformation] = useAtom(playerInformationAtom);
+  const [playerInformation] = useAtom(nonIronmanPlayerInformationAtom);
 
   if (!playerInformation) {
     return (
