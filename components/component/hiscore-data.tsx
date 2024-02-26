@@ -19,7 +19,6 @@ function HiscoreData() {
     return (
       <div className="container min-h-screen bg-scroll bg-cover bg-no-repeat flex justify-center items-start">
         <div className="p-4 mt-32 text-black flex flex-col items-center">
-          <h2 className="text-xl font-bold mb-5">Hiscore Data</h2>
           <p>Search for a player</p>
         </div>
       </div>
@@ -29,7 +28,6 @@ function HiscoreData() {
   return (
     <div className="container min-h-screen bg-scroll bg-cover bg-no-repeat flex justify-center items-start">
       <div className="text-black mt-28">
-        <h2 className="text-xl font-bold mb-5">Hiscore Data</h2>
         <div>
           <table className="table-auto w-full">
             <thead>
