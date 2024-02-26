@@ -1,9 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useAtom } from "jotai";
+import { useEffect } from "react";
 import { nonIronmanPlayerInformationAtom } from "@/utils/store";
 
 function HiscoreData() {
-  const [playerInformation] = useAtom(nonIronmanPlayerInformationAtom);
+  useEffect(() => {
+    if (playerInformation) {
+      setPlayerInformation(undefined);
+    }
+  }, []);
+
+  const [playerInformation, setPlayerInformation] = useAtom(
+    nonIronmanPlayerInformationAtom
+  );
 
   if (!playerInformation) {
     return (
